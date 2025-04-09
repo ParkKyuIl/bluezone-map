@@ -1,0 +1,62 @@
+# === Java / Spring Boot ===
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# === IntelliJ / VSCode ===
+.idea/
+*.iws
+*.ipr
+*.iml
+.vscode/
+*.code-workspace
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg
+*.egg-info/
+dist/
+build/
+.env/
+.venv/
+env/
+venv/
+Pipfile.lock
+
+# === Docker ===
+*.tar
+**/Dockerfile~*
+**/.dockerignore
+docker-compose.override.yml
+
+# === Environment files ===
+.env
+.env.*
+!.env.example  # ✅ 예시 템플릿은 커밋 가능
+
+# === Kubernetes (Optional) ===
+# Manifests with secrets or overlays
+k8s/secrets.yaml
+k8s/overlays/
+*.kubeconfig
+*.pem
+*.crt
+*.key
+
+# === Logs ===
+logs/
+nohup.out
+
+# === OS / Misc ===
+Thumbs.db
+*.bak
+*.tmp

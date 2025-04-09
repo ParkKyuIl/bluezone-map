@@ -1,0 +1,34 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: erangel-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "erangel.zone"
+
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: erangel-service
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - erangel-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /erangel
+      route:
+        - destination:
+            host: erangel-service
+            port:
+              number: 8080

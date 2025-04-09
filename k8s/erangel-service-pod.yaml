@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.35.0 (HEAD)
+  labels:
+    io.kompose.service: erangel-service
+  name: erangel-service
+spec:
+  containers:
+    - env:
+        - name: KAFKA_BOOTSTRAP_SERVERS
+          value: kafka:9092
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: postgres
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres:5432/pubg
+        - name: SPRING_DATASOURCE_USERNAME
+          value: postgres
+      image: erangel-service:latest
+      name: erangel-service
+      imagePullPolicy: Never
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+  restartPolicy: OnFailure

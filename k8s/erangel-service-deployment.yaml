@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erangel-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: erangel-service
+  template:
+    metadata:
+      labels:
+        app: erangel-service
+    spec:
+      containers:
+        - name: erangel-service
+          image: erangel-service:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: default
