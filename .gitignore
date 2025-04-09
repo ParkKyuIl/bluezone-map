@@ -38,6 +38,11 @@ Pipfile.lock
 **/.dockerignore
 docker-compose.override.yml
 
+istio-*/bin/istioctl
+minikube*
+*.tar.gz
+*.zip
+
 # === Environment files ===
 .env
 .env.*
